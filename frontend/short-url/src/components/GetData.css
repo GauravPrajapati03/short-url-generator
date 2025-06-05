@@ -1,0 +1,15 @@
+.url-table {
+    padding: 30px;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 100%;
+    color: white;
+    background-color: black;
+    margin: 10px;
+}
+
+.url-table th {
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
