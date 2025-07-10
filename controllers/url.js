@@ -4,6 +4,8 @@ const shortid = require("shortid")
 
 // Generate New Short Url
 
+// give url in the format : https://www.google.com
+
 async function handleGenerateNewShortUrl(req, res) {
     const body = req.body;
     if(!body.url) {

@@ -13,7 +13,7 @@ const PORT = 3000;
 app.use(cors())
 
 app.use(express.json())
-app.use(express.urlencoded({extended : true}))
+app.use(express.urlencoded({ extended: true }))
 
 // app.get("/url", async (req, res) => {
 //     const allUrls = await URL.find({});
@@ -31,17 +31,21 @@ app.use(express.urlencoded({extended : true}))
 //     `)
 // })
 
+app.get("/", (req, res) => {
+    res.send("Server Running");
+})
+
 app.get("/url", async (req, res) => {
     try {
         const allUrls = await URL.find({});
-        return res.jsonp(allUrls.map(url => ({
-            shortId : url.shortId,
-            redirectUrl : url.redirectUrl,
-            totalClicks : url.visitHistory.length
+        return res.json(allUrls.map(url => ({
+            shortId: url.shortId,
+            redirectUrl: url.redirectUrl,
+            totalClicks: url.visitHistory.length
         })));
     } catch (error) {
         console.log(error);
-        res.status(500).json({error : "Internal Server Error"});
+        res.status(500).json({ error: "Internal Server Error" });
     }
 })
 
